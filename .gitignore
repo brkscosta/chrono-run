@@ -1,0 +1,16 @@
+# Conan files to ignore
+conanbuildinfo.txt
+conaninfo.txt
+graph_info.json
+
+# CMake gen files
+CMakeUserPresets.json
+compile_commands.json
+
+# Clang
+.cache
+
+# Generated files
+build/
+
+.vscode
