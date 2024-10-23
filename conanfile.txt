@@ -1,6 +1,8 @@
 [requires]
 sfml/2.5.1
-catch2/2.13.7
+gtest/1.15.0
+boost/1.83.0
+fruit/3.7.1
 
 [tool_requires]
 cmake/3.22.6

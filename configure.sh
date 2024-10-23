@@ -52,12 +52,13 @@ source_env_file() {
 }
 
 install_dependencies() {
-  conan install . --build=missing -of build --settings=build_type=$1 || { echo "Failed to install dependencies"; return 1; }
+  conan install . --build=missing -of build -s build_type=$1 -s compiler.cppstd=20 || { echo "Failed to install dependencies"; return 1; }
 }
 
 build_project() {
   local build_type=$1
   local cmake_build_type
+  local has_gtest=$3
 
   if [[ $build_type == "Release" ]]; then
     cmake_build_type="Release"
@@ -68,7 +69,7 @@ build_project() {
     return 1
   fi
 
-  cmake -B build -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=$cmake_build_type -DVERSION="${VERSION:-0.0.0}" || { echo "Failed to configure CMake project"; return 1; }
+  cmake -B build -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DHAS_GTEST=$has_gtest -DCMAKE_BUILD_TYPE=$cmake_build_type || { echo "Failed to configure CMake project"; return 1; }
 }
 
 print_compilation_result() {
@@ -88,6 +89,10 @@ while [[ $# -gt 0 ]]; do
       delete_build_folder=true
       shift
       ;;
+    --gtest)
+      has_gtest=ON
+      shift
+      ;;
     Release|Debug)
       build_type=$1
       shift
@@ -102,6 +107,7 @@ done
 
 # Default build type if not set
 build_type=${build_type:-Debug}
+has_gtest=${has_gtest:-OFF}
 
 install_pip
 install_conan
@@ -113,5 +119,5 @@ if [ "$delete_build_folder" = true ]; then
 fi
 
 install_dependencies $build_type
-build_project $build_type
+build_project $build_type $has_gtest
 print_compilation_result

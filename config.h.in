@@ -1,1 +1,7 @@
 #define VERSION "@VERSION@"
+#define INITIAL_WINDOW_WIDTH 800
+#define INITIAL_WINDOW_HEIGHT 600
+#define APP_NAME "Chrono Run"
+#define APP_NAME_SHORT "ChronoRun"
+#define INITIAL_FRAMERATE 60
+#define PLAYER_SPRITE "player.png"

@@ -1,9 +1,10 @@
-#include <iostream>
-#include "config.h"
+#include "app/App.h"
 
-int main() {
 
-    std::cout << "App version: " << VERSION  << std::endl;
+int main(int argc, char* argv[])
+{
+    std::unique_ptr<app::App> app = std::make_unique<app::App>();
+    app->start();
 
-  return 0;
+    return 0;
 }
