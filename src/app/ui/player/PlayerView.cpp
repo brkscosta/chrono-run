@@ -142,13 +142,8 @@ bool PlayerView::loadTexture()
 {
     LOG_SCOPEUSE();
 
-#ifdef NDEBUG
-    std::filesystem::path texturePath = SPRITE_ASSETS_PATH PLAYER_SPRITE;
-#else
-    std::filesystem::path texturePath = "assets/sprites/" PLAYER_SPRITE;
-#endif
-
-    if (!std::filesystem::exists(texturePath))
+    std::filesystem::path texturePath = SPRITES_ASSETS_PATH;
+    if (!std::filesystem::exists(texturePath.append(PLAYER_SPRITE)))
     {
         LOG_ERROR("Player texture not found");
         return false;
