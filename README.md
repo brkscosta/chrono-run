@@ -38,17 +38,15 @@ There is some bash scripts to configure and build the project.
 
 To configure the project:
 ```bash
-./configure
+./configure.sh
 ```
-This script will install the python, pip, and **Conan2** if not found on your machine. After installation it will create a conan profile and download the dependencies from [Conan Center](https://conan.io/).
+This script will install the **pip** and **Conan2** if not found on your machine. After installation it will create a conan profile and download the dependencies from [Conan Center](https://conan.io/).
 
 To build the project:
 
 ```bash
-./configure
+./build.sh
 ```
-
-You can change `--config` to **Release** to build a release version.
 
 ## Run the executable
 

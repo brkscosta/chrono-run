@@ -36,7 +36,7 @@ void App::start()
         return;
     }
 
-    LOG_INFO("App started, version: " + std::string(VERSION) + " build: " + std::string(GIT_COMMIT_HASH));
+    LOG_INFO("App started, version: " + std::string(APP_VERSION) + ", build: " + std::string(GIT_COMMIT_HASH));
     m_renderEngine->run();
 }
 

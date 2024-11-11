@@ -6,6 +6,7 @@ show_help() {
   echo "Options:"
   echo "  -h, --help        Show this help message and exit"
   echo "  --deleteBuild     Delete the existing build folder before building"
+  echo "  --gtest           Enable Google Test framework"
   echo
   echo "Build types:"
   echo "  Release           Build the project in Release mode"
@@ -20,7 +21,7 @@ fi
 install_pip() {
   if ! command -v pip &> /dev/null; then
     echo "WARNING: pip not found. Attempting to install pip..."
-    sudo apt-get update && sudo apt-get install -y python3-pip
+    sudo apt update && sudo apt install -y python3-pip
   fi
 }
 
@@ -57,8 +58,8 @@ install_dependencies() {
 
 build_project() {
   local build_type=$1
+  local has_gtest=$2
   local cmake_build_type
-  local has_gtest=$3
 
   if [[ $build_type == "Release" ]]; then
     cmake_build_type="Release"
