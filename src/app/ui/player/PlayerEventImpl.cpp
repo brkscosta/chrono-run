@@ -1,7 +1,6 @@
 #include "PlayerEventImpl.h"
 
 #include "include/IPlayerEvents.h"
-#include "utils/Logger.h"
 
 using namespace app::ui::views;
 

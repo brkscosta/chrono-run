@@ -1,10 +1,8 @@
 #include "PlayerView.h"
 
-#include "PlayerViewModel.h"
 #include "config.h"
 #include "utils/Logger.h"
 
-#include <iostream>
 
 using namespace app::ui::views;
 
