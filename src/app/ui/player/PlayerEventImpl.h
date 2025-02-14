@@ -2,10 +2,7 @@
 #include "include/IInputManager.h"
 #include <SFML/Window/Keyboard.hpp>
 
-#include <functional>
-#include <map>
 #include <memory>
-#include <vector>
 
 namespace app::ui::events {
 class IPlayerEvents;

@@ -1,7 +1,9 @@
 #pragma once
 
+#include <cstdint>
+
 namespace core::entities {
-enum PlayerState
+enum class PlayerState : std::uint8_t
 {
     Idle,
     Walking,

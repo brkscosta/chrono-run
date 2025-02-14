@@ -8,7 +8,6 @@
 #include "game/GameViewModel.h"
 #include "include/IGameViewEvent.h"
 #include "include/IInputManager.h"
-#include "include/IPlayerEvents.h"
 #include "player/PlayerEventImpl.h"
 #include "player/PlayerView.h"
 #include "player/PlayerViewModel.h"
@@ -16,7 +15,6 @@
 #include "ui/engine/RenderEngine.h"
 #include "utils/Logger.h"
 
-#include <iostream>
 #include <string>
 
 using namespace app;
